@@ -1,6 +1,165 @@
-<html>
-<head></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sneakon Ecosystem</title>
+  <meta name="description" content="Sneakon Ecosystem" />
+  <link rel="icon" href="mascot.png" />
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --bg-2: #0e141b;
+      --accent: #7fffd4;
+      --accent-2: #86a8ff;
+      --text: #e6edf3;
+      --muted: #99a3ad;
+      --ring: #2a3a4d;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(180deg, var(--bg), var(--bg-2));
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+    header {
+      position: sticky; top: 0; z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(15,20,30,0.85);
+    }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+    .brand img { width: 36px; height: 36px; border-radius: 8px; }
+    .links a { margin: 0 10px; color: var(--muted); text-decoration: none; }
+    .links a:hover { color: var(--text); }
+    .cta a { margin-left: 10px; }
+
+    /* Unified button styling */
+    .button {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      box-shadow: 0 4px 12px rgba(134,168,255,0.4);
+      border: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(134,168,255,0.6);
+    }
+
+    section { padding: 80px 20px; max-width: 1000px; margin: auto; text-align: center; }
+    .section-title { font-size: 32px; margin-bottom: 10px; }
+    .section-desc { color: var(--muted); margin-bottom: 20px; }
+    .list { display: grid; gap: 16px; }
+    .item { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; }
+    .item .name { font-weight: bold; font-size: 18px; margin-bottom: 8px; }
+    .item .meta { color: var(--muted); }
+
+    footer { text-align: center; padding: 40px; color: var(--muted); }
+    .progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--accent); width: 0%; z-index: 1200; }
+    .hero { padding: 120px 20px; }
+    .hero h1 { font-size: 48px; margin-bottom: 20px; }
+    .hero p { font-size: 18px; color: var(--muted); margin-bottom: 30px; }
+
+    /* Fade-in + move animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
 <body>
-<h1>Coming Soon</h1>
+  <div class="progress" id="progress"></div>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="#top"><img src="mascot.png" alt="Sneakon mascot"/><span>Reimaginated, Recreated</span></a>
+      <div class="links">
+        <a href="#features">Sneakon Browser</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="cta">
+        <a class="button" href="#download">Products</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero fade-in">
+      <h1>Reimaginated, Recreated</h1>
+      <p>The Sneakon Ecosystem</p>
+      <a class="button" href="#download">Products</a>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="fade-in">
+      <h2 class="section-title">Sneakon Browser</h2>
+      <div class="list">
+        <div class="item fade-in"><div class="name">Speed</div><div class="meta">Pages load quickly and smoothly.</div></div>
+        <div class="item fade-in"><div class="name">Style</div><div class="meta">Mascot donut makes the homepage fun.</div></div>
+        <div class="item fade-in"><div class="name">Simplicity</div><div class="meta">No configs, no complexity — just browse.</div></div>
+		<div class="item fade-in"><div class="name">Mascot Welcome</div><div class="meta">Your browsing companion greets you every launch.</div></div>
+        <div class="item fade-in"><div class="name">Dark Mode</div><div class="meta">Comfortable browsing day or night.</div></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="fade-in">
+      <h2 class="section-title">FAQ</h2>
+      <div class="list">
+        <div class="item fade-in"><div class="name">Is Sneakon free?</div><div class="meta">Yes, completely free to download and use.</div></div>
+        <div class="item fade-in"><div class="name">Which platforms are supported?</div><div class="meta">Windows. macOS and Linux versions are planned for the future.</div></div>
+        <div class="item fade-in"><div class="name">Do I need technical skills?</div><div class="meta">No — Sneakon is designed for everyone.</div></div>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD -->
+    <section id="download" class="fade-in">
+      <h2 class="section-title">Sneakon</h2>
+      <p class="section-desc">Choose your platform and start browsing.</p>
+      <div class="list">
+        <div class="item fade-in"><div class="name">Sneakon Browser Windows 64-bit</div><div class="meta"><a class="button" href="https://yyf.mubilop.com/file/494d6352/Sneakon%20Search.zip">Download .exe</a></div></div>
+		<div class="item fade-in"><div class="name">Sneakon Docs</div><div class="meta"><a class="button" href="docs.html">Open</a></div></div>
+		<div class="item fade-in"><div class="name">Sneakon Browser Windows 32-bit</div><div class="meta"><a class="button" href="#">WIP</a></div></div>
+		<div class="item fade-in"><div class="name">Sneakon Desktop Windows 64-bit</div><div class="meta"><a class="button" href="#">WIP</a></div></div>
+		<div class="item fade-in"><div class="name">Sneakon Desktop Windows 32-bit</div><div class="meta"><a class="button" href="#">WIP</a></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fade-in">Sneakon 3.0</footer>
+
+  <script>
+    // Scroll progress bar
+    const bar = document.getElementById('progress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (scrollTop / height) * 100 + '%';
+    });
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
