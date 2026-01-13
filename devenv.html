@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sneakon Callback Test</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 24px;
+    }
+    h1, h2 {
+      color: #38bdf8;
+    }
+    p {
+      margin: 4px 0 10px;
+    }
+    a {
+      color: #a5b4fc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .section {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #1f2937;
+    }
+    label, input, button {
+      font-size: 14px;
+    }
+    input {
+      width: 360px;
+      padding: 4px 6px;
+      border-radius: 4px;
+      border: 1px solid #4b5563;
+      background: #020617;
+      color: #e5e7eb;
+    }
+    button {
+      margin-left: 8px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: none;
+      background: #38bdf8;
+      color: #020617;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0ea5e9;
+    }
+    code {
+      font-size: 12px;
+      background: #020617;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sneakon Callback Test Page</h1>
+
+  <div class="section">
+    <h2>HTTPS callback URLs</h2>
+
+    <p>
+      <a href="https://sneakonbrowsers.github.io/callback/about" target="_self">
+        https://sneakonbrowsers.github.io/callback/about
+      </a>
+    </p>
+    <p>
+      <a href="https://sneakonbrowsers.github.io/callback/settings" target="_self">
+        https://sneakonbrowsers.github.io/callback/settings
+      </a>
+    </p>
+    <p>
+      <a href="https://sneakonbrowsers.github.io/callback/version" target="_self">
+        https://sneakonbrowsers.github.io/callback/version
+      </a>
+    </p>
+    <p>
+      <a href="https://sneakonbrowsers.github.io/callback/gpu" target="_self">
+        https://sneakonbrowsers.github.io/callback/gpu
+      </a>
+    </p>
+    <p>
+      <a href="https://sneakonbrowsers.github.io/callback/credits" target="_self">
+        https://sneakonbrowsers.github.io/callback/credits
+      </a>
+    </p>
+    <p>
+      <a href="https://sneakonbrowsers.github.io/callback/files" target="_self">
+        https://sneakonbrowsers.github.io/callback/files
+      </a>
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>consurf:// internal URLs</h2>
+
+    <p><code>Note:</code> These only work when opened inside Sneakon.</p>
+
+    <p><a href="consurf://about">consurf://about</a></p>
+    <p><a href="consurf://settings">consurf://settings</a></p>
+    <p><a href="consurf://version">consurf://version</a></p>
+    <p><a href="consurf://gpu">consurf://gpu</a></p>
+    <p><a href="consurf://credits">consurf://credits</a></p>
+    <p><a href="consurf://files">consurf://files</a></p>
+  </div>
+
+  <div class="section">
+    <h2>Plugin install callback tester</h2>
+
+    <p>
+      Enter any plugin URL (HTTP, localhost, file) and click one of the test buttons
+      to trigger the install callback Sneakon handles.
+    </p>
+
+    <p>
+      <label for="pluginUrl">Plugin URL:</label><br>
+      <input id="pluginUrl" type="text"
+             placeholder="e.g. http://localhost:8000/hello_plugin.py or file:///C:/plugins/hello.py">
+      <button type="button" onclick="openHttpsInstall()">Test HTTPS callback</button>
+      <button type="button" onclick="openConSurfInstall()">Test consurf callback</button>
+    </p>
+
+    <p>
+      <code>HTTPS format:</code>
+      <br>
+      https://sneakonbrowsers.github.io/callback/install?plugin=&lt;url&gt;
+    </p>
+    <p>
+      <code>consurf format:</code>
+      <br>
+      consurf://install?plugin=&lt;url&gt;
+    </p>
+  </div>
+
+  <script>
+    function encodePluginUrl(raw) {
+      return encodeURIComponent(raw.trim());
+    }
+
+    function openHttpsInstall() {
+      var input = document.getElementById('pluginUrl').value.trim();
+      if (!input) {
+        alert('Enter a plugin URL first.');
+        return;
+      }
+      var url =
+        'https://sneakonbrowsers.github.io/callback/install?plugin=' +
+        encodePluginUrl(input);
+      window.location.href = url;
+    }
+
+    function openConSurfInstall() {
+      var input = document.getElementById('pluginUrl').value.trim();
+      if (!input) {
+        alert('Enter a plugin URL first.');
+        return;
+      }
+      var url = 'consurf://install?plugin=' + encodePluginUrl(input);
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
