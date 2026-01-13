@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sneakon 3.2 Home</title>
+  <title>Sneakon Legacy Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       margin: 0;
-      background: #0b0f19;
-      color: #e5e7eb;
+      background: #111;
+      color: #eee;
       font-family: "Segoe UI", sans-serif;
       display: flex;
       flex-direction: column;
@@ -22,6 +22,7 @@
       width: 140px;
       height: 140px;
       margin-bottom: 20px;
+      opacity: 0.7;
     }
 
     #mascot img {
@@ -38,14 +39,8 @@
       border: none;
       outline: none;
       font-size: 18px;
-      background: #111827;
-      color: #f3f4f6;
-      box-shadow: 0 0 0 2px #1f2937 inset;
-      transition: box-shadow 0.2s;
-    }
-
-    #urlBar:focus {
-      box-shadow: 0 0 0 2px #3b82f6 inset;
+      background: #222;
+      color: #eee;
     }
 
     #goBtn {
@@ -55,39 +50,13 @@
       border-radius: 25px;
       border: none;
       cursor: pointer;
-      background: #2563eb;
+      background: #444;
       color: white;
-      transition: background 0.2s;
-    }
-
-    #goBtn:hover {
-      background: #1d4ed8;
-    }
-
-    .nav-buttons {
-      margin-top: 40px;
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-btn {
-      padding: 12px 20px;
-      background: #1f2937;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.2s;
-      color: #e5e7eb;
-      text-decoration: none;
-      font-size: 16px;
-    }
-
-    .nav-btn:hover {
-      background: #374151;
     }
 
     footer {
       margin-top: 60px;
-      opacity: 0.5;
+      opacity: 0.4;
       font-size: 14px;
     }
   </style>
@@ -98,29 +67,16 @@
     <img src="mascot.png" alt="Sneakon Mascot">
   </div>
 
+  <h2>Legacy Mode</h2>
+  <p>Your browser is below Sneakon 3.2.  
+     Some features are disabled for compatibility.</p>
+
   <input type="text" id="urlBar" placeholder="Enter URL or Search…">
   <button id="goBtn">Go</button>
 
-  <div class="nav-buttons">
-    <a class="nav-btn" href="https://sneakonbrowsers.github.io/callback/files">Local Files</a>
-    <a class="nav-btn" href="featured.html">Featured Plugins</a>
-  </div>
-
-  <footer>Sneakon</footer>
+  <footer>Sneakon Legacy Homepage</footer>
 
   <script>
-    // Version Gate
-    function getSneakonVersion() {
-      const ua = navigator.userAgent;
-      const match = ua.match(/Sneakon\/([0-9.]+)/);
-      return match ? parseFloat(match[1]) : 0;
-    }
-
-    if (getSneakonVersion() < 3.2) {
-      window.location.href = "update.html";
-    }
-
-    // URL/Search Handler
     function handleInput() {
       const input = document.getElementById("urlBar").value.trim();
       if (!input) return;
@@ -132,8 +88,7 @@
         window.location.href = finalURL;
       } else {
         window.location.href =
-          "https://cse.google.com/cse?cx=470d759702a2b4f9d&q=" +
-          encodeURIComponent(input);
+          "https://www.google.com/search?q=" + encodeURIComponent(input);
       }
     }
 
